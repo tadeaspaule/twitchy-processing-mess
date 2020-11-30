@@ -10,7 +10,7 @@
             :min="0.1" :max="100"/>
         <CustomSlider :title="'Base radius'"
             :sliderModel="base" @change="(val) => base = val"
-            :min="0" :max="400"/>
+            :min="0" :max="300"/>
         <CustomSlider :title="'Fluctuating radius'"
             :sliderModel="h" @change="(val) => h = val"
             :min="0" :max="400"/>
@@ -64,11 +64,11 @@ export default {
                 var points
 
                 p5.setup = _ => {
-                    var canvas = p5.createCanvas(600, 600)
+                    var canvas = p5.createCanvas(800, 800)
                     canvas.parent('canvas-container')
-                    p5.background(0)
+                    p5.background(255)
                     p5.noFill()
-                    p5.stroke(255)
+                    p5.stroke(0)
                     p5.strokeWeight(5)
                     p5.frameRate(30)
                     points = []
@@ -84,7 +84,7 @@ export default {
                 }
 
                 p5.draw = _ => {
-                    p5.background(0)
+                    p5.background(255)
                     p5.beginShape()
                     for (var i = 0; i < n; i++) {
                         points[i] = (points[i] + grow) % (Math.PI * 2)
@@ -129,9 +129,9 @@ export default {
     padding-bottom: 20px;
 }
 #canvas-container {
-    flex: 0 0 650px;
-    height: 650px;
-    background: black;
+    flex: 0 0 800px;
+    height: 800px;
+    background: white;
     margin: 0px 10px;
 }
 #infomenu {
